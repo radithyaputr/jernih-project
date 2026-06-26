@@ -1,0 +1,35 @@
+# --- Environment files ---
+.env
+.env.local
+.env.*.local
+
+# --- Python (Backend) ---
+backend/venv/
+backend/__pycache__/
+backend/*.pyc
+backend/*.pyo
+backend/.pytest_cache/
+backend/*.db
+backend/*.sqlite3
+backend/dist/
+backend/build/
+
+# --- Node (Frontend) ---
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/dist/
+frontend/build/
+frontend/*.tsbuildinfo
+frontend/next-env.d.ts
+
+# --- IDE ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# --- OS ---
+.DS_Store
+Thumbs.db
