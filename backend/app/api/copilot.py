@@ -7,12 +7,16 @@ router = APIRouter(prefix="/api/copilot", tags=["AI Civic Copilot"])
 
 class ChatRequest(BaseModel):
     message: str
+    history: list[str] = []
     session_id: str | None = None
-
+    
 @router.post("/chat")
 def chat(request: ChatRequest):
     try:
-        result = analyze_situation(request.message)
+        conversation = "\n".join(request.history)
+conversation += f"\nUser: {request.message}"
+
+result = analyze_situation(conversation)
 
         # Casual response (greetings, simple chat)
         if isinstance(result, CasualResponse):
