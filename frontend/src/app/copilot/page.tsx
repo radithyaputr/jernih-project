@@ -67,10 +67,18 @@ export default function CopilotPage() {
     setIsLoading(true)
 
     try {
-      console.log("Calling API with message:", input)
-      const res = await api.copilot.chat({ message: input })
-      console.log("API response received:", res)
+  console.log("Calling API with message:", input)
 
+  const history = messages
+    .filter((m) => m.role === "user")
+    .map((m) => m.content)
+
+  const res = await api.copilot.chat({
+    message: input,
+    history: history,
+  })
+
+  console.log("API response received:", res)
       if (res.type === "casual") {
         // Casual response — just a text message
         const assistantMsg: Message = {
