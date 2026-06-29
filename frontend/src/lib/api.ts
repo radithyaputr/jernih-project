@@ -2,6 +2,7 @@ const API_BASE = 'https://jernih-project-production.up.railway.app'
 
 export interface CopilotRequest {
   message: string
+  history?: string[]
   session_id?: string
 }
 
